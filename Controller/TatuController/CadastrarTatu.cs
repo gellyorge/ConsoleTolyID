@@ -3,7 +3,7 @@ namespace ConsoleTolyID;
 
 public static class CadastrarTatu
 {
-    public static async void Cadastrar()
+    public static async Task<Tatu> Cadastrar()
     {
         var tatu = new TatuService();
         Tatu novoTatu = new();
@@ -18,12 +18,13 @@ public static class CadastrarTatu
             
             await tatu.SalvaTatu(novoTatu);
             System.Console.WriteLine("Tatu Cadastrado com Sucesso!");
+            return novoTatu;
         }
         catch
         {
             Console.Clear();
             System.Console.WriteLine("Digite Dados Validos!");
-            Cadastrar();
+            return await Cadastrar();
         }
     }
 }

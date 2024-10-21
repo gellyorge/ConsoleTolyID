@@ -1,6 +1,6 @@
 ﻿namespace ConsoleTolyID;
 
-public class ExibirCaptura
+public class CadastrarCliente
 {
 
 }

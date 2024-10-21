@@ -5,9 +5,9 @@ using ConsoleTolyID.ModelCapturas;
 
 namespace ConsoleTolyID;
 
-public class CadastrarCaptura
+public static class CadastrarCaptura
 {
-    public async void Cadastrar(Tatu tatu)
+    public static async void Cadastrar(Tatu tatu)
     {
         var banco = new CapturaService();
         try
@@ -20,13 +20,12 @@ public class CadastrarCaptura
             captura.FichaAnestesica = new CadastrarFichaAnestesica().Cadastrar();
             captura.Biometria = new CadastrarBiometria().Cadastrar();
             captura.Amostras = new CadastrarAmostra().Cadastrar();
-            
+
             await banco.SalvaCaptura(captura,tatu);
-           
         }
         catch
         {
-
+            
         }
     }
 }

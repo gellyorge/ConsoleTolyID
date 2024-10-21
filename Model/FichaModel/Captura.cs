@@ -37,4 +37,9 @@ public int AmostrasId { get; set; }
 
 [OneToOne(CascadeOperations = CascadeOperation.All)]
 public Amostras Amostras { get; set; } = new();
+
+    public override string ToString()
+    {
+        return $"captura:\nID: {Id}\n";
+    }
 }
