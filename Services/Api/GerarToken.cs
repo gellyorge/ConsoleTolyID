@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,7 +6,7 @@ namespace ConsoleTolyID
 {
     public class GerarToken : BaseApiConfiguration
     {
-        public async Task<string?> Gerar()
+        public async Task<string> Gerar()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -36,13 +33,13 @@ namespace ConsoleTolyID
                     else
                     {
                         Console.WriteLine("Erro: " + response.StatusCode);
-                        return null;
+                        return null!;
                     }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Erro ao enviar a requisição: " + e.Message);
-                    return null;
+                    return null!;
                 }
             }
         }
